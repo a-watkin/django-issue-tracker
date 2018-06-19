@@ -16,10 +16,8 @@ def get_stats(db_obj):
             delta_time = abs(solved_at - created_at)
             time_d.append(delta_time)
 
-            timedeltas = [time_d[i-1]-time_d[i] for i in range(1, len(time_d))]
-
             if len(time_d) > 1:
-                average_timedelta = abs(sum(timedeltas, dt.timedelta(0)) / len(timedeltas))
+                average_timedelta = sum(time_d, dt.timedelta()) / len(time_d)
 
     stats = {}
 
@@ -28,6 +26,7 @@ def get_stats(db_obj):
         stats['shortest'] = min(time_d)
         if len(time_d) == 1:
             stats['average'] = max(time_d)
+            print('test')
         else:
             stats['average'] = average_timedelta
     else:
@@ -35,6 +34,7 @@ def get_stats(db_obj):
         stats['shortest'] = 'Not enough data'   
         stats['average'] = 'Not enough data'
 
+    print(time_d)
     return stats
 
 
