@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Issue
 # Create your views here.
 
+
 def issues(request):
-    return HttpResponse("issues page")
+    issues = Issue.objects.order_by('created_at')
+
+    return render(request, 'issues.html', {'issues': issues})

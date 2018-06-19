@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+{% if issues %}
+
+<h1 class="text-center">Issues</h1>
+
+<h2>Issue statistics</h2>
+<div class="row">
+    <div class="col-4">
+        <p>Average issue solve time: {{ stats.average }}</p>
+
+    </div>
+
+    <div class="col-4">
+        <p>Longest issue solve time: {{ stats.longest }}</p>
+
+    </div>
+
+    <div class="col-4">
+        <p>Shortest issue solve time: {{ stats.shortest }}</p>
+
+    </div>
+
+</div>
+
+
+
+<hr>
+{% for issue in issues %}
+
+
+    <div class="row">
+        <div class="col">
+
+        
+            <h1>{{issue.title}}</h1>
+
+
+            <h2>Description:</h2>
+            <p>{{issue.discription}}</p>
+            
+
+            <p>Issue type: {{issue.category}}</p>
+            <p>Submitted by: {{issue.submitted_by}} on: {{issue.created_at}}</p>
+            
+            <p>Issue status: {{issue.status}}</p>
+
+
+            {% if issue.solved_by %}
+
+            <p>Solved by: {{issue.solved_by.user}} on: {{issue.solved_at}}</p>
+            
+            {% endif %}
+        
+        </div>
+    </div>
+    <hr>
+
+{% endfor %}
+
+
+
+{% else %}
+
+<div class="row">
+    <div class="col">
+        <h1>No issues here</h1>
+    </div>
+</div>
+
+
+
+{% endif %}
+
+
+{% endblock %}
