@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <h1>Welcome</h1>
+
+        <p>
+        So I've tried to meet all your use cases. I wasn't really sure what role the staff account described in the specifications should have. Whether you wanted a longin for account or something alone those lines.
+        </p>
+
+        <p>
+        Since it's not mentioned explicitly and the staff role described can't do anything I've implemented the issues list without any login.
+        </p>
+
+        <p>
+        Instead I've assumed that staff users can solve problems but only admin can accept solutions and attribute them to that staff user. So staff users are simply the solver in the database model.
+        </p>
+
+
+        <a href="{% url 'issues_page' %}">Link to issues page</a>
+        <br>
+
+        <br>
+        
+        <a href="{% url 'admin:index' %}">Link to admin panel where you can add, delete or edit issues and users</a>
+        
+    </div>
+</div>
+
+{% endblock %}
