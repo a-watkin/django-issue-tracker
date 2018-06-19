@@ -43,7 +43,7 @@ A virtualenv is required using python 3.6 along with all dependencies listed in 
 
 After activating your virtualenv dependencies can be installed with:
 
-    `pip install -r requirements.txt`
+`pip install -r requirements.txt`
 
 
 ## Running the server and accessing the app

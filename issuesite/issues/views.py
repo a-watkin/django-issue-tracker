@@ -3,9 +3,12 @@ import datetime as dt
 
 from django.shortcuts import render
 from .models import Issue
-# Create your views here.
 
 
+"""
+Helper method for issues that generates statistical data
+based on issue solve time.
+"""
 def get_stats(db_obj):
     time_d = []
     for x in db_obj:
@@ -34,7 +37,6 @@ def get_stats(db_obj):
         stats['shortest'] = 'Not enough data'   
         stats['average'] = 'Not enough data'
 
-    print(time_d)
     return stats
 
 
