@@ -22,19 +22,12 @@ Issues can be added and edited via django admin.
 Statistics about the average, longest and shortest time taken to solve the issues are shown in the header.
 
 
-
-
-    - It is sufficient to have Categories only in the DB, without administration, but in the future it should be as simple as possible to add it
-
 Categories are implemented in the database.
 
 
 Django auth is used to implement a superuser who can change, add or edit any issues.
 
-A staff account type can view issues but cannot edit or change anything.
-
-
-    - Implement 2 user roles: superuser and staff, staff cannot change or add anything, the superuser can do everything
+A staff account type (StaffUser in the model) can view issues but cannot edit or change anything.
 
 
 
@@ -45,13 +38,16 @@ SQLite
 
 ## Installation instructions
 
-A virtualenv is required along with all dependencies listed in requirements.txt
+A virtualenv is required using python 3.6 along with all dependencies listed in requirements.txt
 
 
+After activating your virtualenv dependencies can be installed with:
+
+    `pip install -r requirements.txt`
 
 
 ## Running the server and accessing the app
 
-Navigate to x and run:
+Navigate to issuesite and run:
 
 `python manage.py runsever`
