@@ -5,11 +5,11 @@ from django.shortcuts import render
 from .models import Issue
 
 
-"""
-Helper method for issues that generates statistical data
-based on issue solve time.
-"""
 def get_stats(db_obj):
+    """
+    Helper method for issues that generates statistical data
+    based on issue solve time.
+    """
     time_d = []
     for x in db_obj:
         if x.solved_at:
@@ -34,7 +34,7 @@ def get_stats(db_obj):
             stats['average'] = average_timedelta
     else:
         stats['longest'] = 'Not enough data'
-        stats['shortest'] = 'Not enough data'   
+        stats['shortest'] = 'Not enough data'
         stats['average'] = 'Not enough data'
 
     return stats
